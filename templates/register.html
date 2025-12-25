@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px 25px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #e2b7c2;
+            font-size: 14px;
+            background-color: #fff1f4;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: #ffecef;
+            border-color: #e58a9e;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #1e7e34;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .link {
+            margin-top: 16px;
+            font-size: 14px;
+        }
+
+        .link a {
+            color: #e58a9e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link a:hover {
+            color: #d76b84;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Register</h2>
+
+    <form method="post">
+        <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            value="{{ username | default('') }}"
+        >
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            value="{{ password | default('') }}"
+        >
+        <button type="submit">Register</button>
+    </form>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <div class="link">
+        Already have an account?
+        <a href="/login">Login</a>
+    </div>
+</div>
+
+</body>
+</html>
