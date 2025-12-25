@@ -1,0 +1,11 @@
+# Виртуальное окружение
+
+weather/
+venv/
+env/
+.env
+
+
+# Кэш Python
+__pycache__/
+*.pyc
